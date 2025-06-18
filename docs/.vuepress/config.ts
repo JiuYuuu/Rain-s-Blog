@@ -12,22 +12,24 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import notes from './notes/index'
 
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: 'rainsblog',
-  description: 'rain',
+  title: 'RainBlog',
+  description: '',
 
   head: [
     // 配置站点图标
-    ['link', { rel: 'icon', type: 'image/png', href: 'https://theme-plume.vuejs.press/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/jpeg', href: 'https://cdn.jsdelivr.net/gh/JiuYuuu/Blog-images/blob/main/head.jpeg' }],
   ],
 
   bundler: viteBundler(),
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
+    aside: 'left',
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     // hostname: 'https://your_site_url',
 
@@ -39,9 +41,11 @@ export default defineUserConfig({
     /* 页内信息 */
     // editLink: true,
     // lastUpdated: true,
-    // contributors: true,
+    plugins: {
+      git: process.env.NODE_ENV === 'production',
+    },
     // changelog: false,
-
+    notes,
     /**
      * 博客
      * @see https://theme-plume.vuejs.press/config/basic/#blog
@@ -69,11 +73,11 @@ export default defineUserConfig({
      * 为 markdown 文件自动添加 frontmatter 配置
      * @see https://theme-plume.vuejs.press/config/basic/#autofrontmatter
      */
-    // autoFrontmatter: {
-    //   permalink: true,  // 是否生成永久链接
-    //   createTime: true, // 是否生成创建时间
-    //   title: true,      // 是否生成标题
-    // },
+    autoFrontmatter: {
+       permalink: true,  // 是否生成永久链接
+       createTime: true, // 是否生成创建时间
+       title: true,      // 是否生成标题
+     },
 
     /* 本地搜索, 默认启用 */
     search: { provider: 'local' },

@@ -12,21 +12,24 @@
 
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import navbar from './navbar'
-import notes from './notes'
+import notes from './notes/index'
 
 /**
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
+  logo: 'https://theme-plume.vuejs.press/plume.png', 
 
   appearance: true,  // 配置 深色模式
 
   social: [
-    { icon: 'github', link: '/' },
+    { icon: 'github', link: 'https://github.com/JiuYuuu' },
+    { icon: 'bilibili', link: 'https://space.bilibili.com/39397721' },
+    { icon: 'steam', link: 'https://steamcommunity.com/profiles/76561198979859136/' },
+    { icon: 'twitter', link: 'https://x.com/oOJiuYuOo' }
   ],
   // navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
-  // aside: true, // 页内侧边栏， 默认显示在右侧
+  aside: true, // 页内侧边栏， 默认显示在右侧
   // outline: [2, 3], // 页内大纲， 默认显示 h2, h3
 
   /**
@@ -40,21 +43,19 @@ export default defineThemeConfig({
   // createTime: true, // 是否显示文章创建时间
 
   /* 站点页脚 */
-  // footer: {
-  //   message: 'Power by <a target="_blank" href="https://v2.vuepress.vuejs.org/">VuePress</a> & <a target="_blank" href="https://theme-plume.vuejs.press">vuepress-theme-plume</a>',
-  //   copyright: '',
-  // },
-
+  footer: {
+     message: '旧雨的博客 © 2025 by 旧雨',
+  },
   /**
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
   profile: {
-    avatar: 'https://theme-plume.vuejs.press/plume.png',
-    name: 'rainsblog',
-    description: 'rain',
-    // circle: true,
-    // location: '',
-    // organization: '',
+    avatar: 'https://cdn.jsdelivr.net/gh/JiuYuuu/Blog-images/head.jpeg',
+    name: '旧雨',
+    description: '',
+    circle: true,
+    location: 'ShanDong, China',
+    organization: 'SDLIVC',
   },
 
   navbar,
