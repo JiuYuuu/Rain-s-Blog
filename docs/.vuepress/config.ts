@@ -17,7 +17,7 @@ import notes from './notes/index'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: 'RainBlog',
+  title: 'Aurein Blog',
   description: '',
 
   head: [
