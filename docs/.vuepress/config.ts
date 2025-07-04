@@ -31,12 +31,16 @@ export default defineUserConfig({
   theme: plumeTheme({
     aside: 'left',
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'aurein.xin',
+    footer: {
+      message: "<span style='display: inline-flex; align-items: center; gap: 10px;'><a href='https://beian.miit.gov.cn/'>鲁ICP备2025171610号</a> <img src='/images/gongan.png' style='height: 20px; margin-right: 5px;' /> </span>",
+      copyright: "Copyright © 2025 JiuYu"
+    },
 
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
     // docsDir: 'docs',
-    // docsBranch: '',
+    // docsBranch: '', 
 
     /* 页内信息 */
     // editLink: true,

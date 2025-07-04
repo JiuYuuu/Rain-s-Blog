@@ -7,7 +7,7 @@ config:
     full: true
     background: tint-plate
     hero:
-      name: JiuYu's Blog
+      name: Aurein Blog
       tagline: Nothing stays the same forever
       text: 长夜伴浪破晓梦，梦晓浪破伴夜长
       actions:
@@ -18,5 +18,5 @@ config:
         -
           theme: alt
           text: Github →
-          link: /
+          link: https://github.com/JiuYuuu
 ---
