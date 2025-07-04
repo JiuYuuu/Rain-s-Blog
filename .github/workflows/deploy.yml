@@ -12,6 +12,8 @@ jobs:
   build-and-deploy:
     # 运行环境
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
 
     steps:
@@ -42,4 +44,4 @@ jobs:
           build_dir: docs/.vuepress/dist
           fqdn: aurein.xin
         env:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
