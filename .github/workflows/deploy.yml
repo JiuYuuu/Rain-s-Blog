@@ -12,6 +12,8 @@ jobs:
   build-and-deploy:
     # 运行环境
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Code
