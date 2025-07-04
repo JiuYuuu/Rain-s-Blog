@@ -54,4 +54,4 @@ jobs:
           fqdn: aurein.xin
           # 【安全优化】直接使用 GitHub 自动提供的、安全的 GITHUB_TOKEN
           # 这比使用手动的 ACCESS_TOKEN 更简单、更安全
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}
