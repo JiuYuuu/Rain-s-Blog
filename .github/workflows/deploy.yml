@@ -40,4 +40,5 @@ jobs:
           target_branch: deploy
           build_dir: docs/.vuepress/dist
           fqdn: aurein.xin
+        env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
