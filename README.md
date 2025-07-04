@@ -1,3 +1,3 @@
-# rainsblog
+# Aurein.xin
 旧雨的个人博客
 目前还在逐渐完善中...

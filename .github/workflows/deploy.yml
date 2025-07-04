@@ -1,0 +1,59 @@
+name: Build and Deploy Blog
+
+on:
+  push:
+    branches: [master]
+  # 2. 手动触发：允许你在 Actions 页面上手动点击按钮来运行
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 第1步：检出代码
+      # 使用官方的 actions/checkout 动作，将你的源码下载到虚拟服务器上
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # fetch-depth: 0 拉取所有 Git 历史记录
+          # 这对于 VuePress 正确显示“最后更新时间”等信息至关重要
+          fetch-depth: 0
+
+      # 第2步：设置 pnpm 包管理器
+      # 使用 pnpm 官方的 Action 来准备 pnpm 环境
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      # 第3步：设置 Node.js 环境
+      # 使用官方的 actions/setup-node 动作，安装指定版本的 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          # 选择要使用的 Node.js 版本
+          node-version: 20
+          # 为 pnpm 设置缓存，可以加快后续的安装速度
+          cache: 'pnpm'
+
+      # 第4步：安装依赖
+      # 使用 pnpm 安装，--frozen-lockfile 确保每次安装的依赖版本都完全一致
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 第5步：运行构建脚本
+      # 执行 package.json 中定义的构建命令，生成 dist 文件夹
+      - name: Build VuePress site
+        run: pnpm run docs:build
+
+      # 第6步：部署到部署分支
+      - name: Deploy to Deployment Branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          # 部署到 `blog_pages` 分支
+          target_branch: blog_pages
+          # 部署目录为 VuePress 的默认输出目录
+          build_dir: docs/.vuepress/dist
+          fqdn: aurein.xin
+          # 【安全优化】直接使用 GitHub 自动提供的、安全的 GITHUB_TOKEN
+          # 这比使用手动的 ACCESS_TOKEN 更简单、更安全
+          github_token: ${{ secrets.GITHUB_TOKEN }}
