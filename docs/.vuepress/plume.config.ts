@@ -25,6 +25,7 @@ export default defineThemeConfig({
   social: [
     { icon: 'github', link: 'https://github.com/JiuYuuu' },
     { icon: 'bilibili', link: 'https://space.bilibili.com/39397721' },
+    {  icon: 'steam', link: 'https://steamcommunity.com/profiles/76561198979859136/' }
   ],
   navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
   aside: true, // 页内侧边栏， 默认显示在右侧
