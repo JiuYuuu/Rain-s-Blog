@@ -33,7 +33,7 @@ export default defineUserConfig({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     hostname: 'aurein.xin',
     footer: {
-      message: "<span style='display: inline-flex; align-items: center; gap: 10px;'><a href='https://beian.miit.gov.cn/'>鲁ICP备2025171610号</a> <img src='/images/gongan.png' style='height: 20px; margin-right: 5px;' /> </span>",
+      message: "<span style='display: inline-flex; align-items: center; gap: 10px;'><a href='https://beian.miit.gov.cn/'>鲁ICP备2025171610号</a><a href='https://beian.mps.gov.cn/#/query/webSearch?code=37098302001267' target='_blank' style='display: inline-flex; align-items: center;'><img src='/images/gongan.png' style='height: 20px; margin-right: 5px;' />鲁公网安备37098302001267号</a>",
       copyright: "Copyright © 2025 JiuYu"
     },
 
